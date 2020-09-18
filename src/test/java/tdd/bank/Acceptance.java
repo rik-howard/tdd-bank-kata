@@ -24,9 +24,9 @@ class Acceptance {
     @Test void
     depositing_stores_transaction () {
         //given
-        Integer amount = 0;
-        String stamp = "1970-01-01";
-        Transaction transaction = new Transaction ();
+        String stamp = null;
+        Integer amount = null;
+        Transaction transaction = new Transaction (amount, stamp);
         Account account = new Account (acceptor, stamper, creator, history, null, null);
         // when
         when (acceptor.accepts (amount)).thenReturn (true);
@@ -43,9 +43,9 @@ class Acceptance {
     @Test void
     withdrawing_stores_transaction () {
         // given
-        Integer amount = 0;
-        String stamp = "1970-01-01";
-        Transaction transaction = new Transaction ();
+        String stamp = null;
+        Integer amount = null;
+        Transaction transaction = new Transaction (amount, stamp);
         Account account = new Account (acceptor, stamper, creator, history, null, null);
         // when
         when (acceptor.accepts (amount)).thenReturn (true);
@@ -62,8 +62,10 @@ class Acceptance {
     @Test void
     printing_displays_transactions () {
         // given
+        String stamp = null;
+        Integer amount = null;
         Formation formation = new Formation ();
-        Transaction transaction = new Transaction ();
+        Transaction transaction = new Transaction (amount, stamp);
         List <Formation> formations = Collections.singletonList (formation);
         List <Transaction> transactions = Collections.singletonList (transaction);
         Account account = new Account (null, null, null, history, formatter, displayer);
