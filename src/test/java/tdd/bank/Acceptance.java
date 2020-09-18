@@ -36,4 +36,23 @@ class Acceptance {
         verify (history).store (transaction);
     }
 
+    @Test void
+    withdrawing_stores_transaction () {
+        // given
+        Integer amount = 0;
+        String stamp = "1970-01-01";
+        Transaction transaction = new Transaction ();
+        Account account = new Account (acceptor, stamper, creator, history);
+        // when
+        when (acceptor.accepts (amount)).thenReturn (true);
+        when (stamper.stamp ()).thenReturn (stamp);
+        when (creator.transaction (amount, stamp)).thenReturn (transaction);
+        account.withdraw (amount);
+        // then
+        verify (acceptor).accepts (amount);
+        verify (stamper).stamp ();
+        verify (creator).transaction (amount, stamp);
+        verify (history).store (transaction);
+    }
+
 }

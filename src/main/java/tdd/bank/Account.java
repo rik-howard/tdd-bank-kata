@@ -24,7 +24,12 @@ class Account {
     }
 
     void withdraw (Integer amount) {
-        throw new UnsupportedOperationException ();
+        if (acceptor.accepts (amount)) {
+            String stamp = stamper.stamp ();
+            Transaction transaction = creator.transaction (amount, stamp);
+            history.store (transaction);
+        }
+        else throw new IllegalArgumentException ("amount unacceptable: " + amount);
     }
 
     void printStatement () {
