@@ -8,38 +8,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HistoryTester {
 
+    //given
+    private final String stamp = null;
+    private final Integer amount = null;
+    private final Transaction transaction = new Transaction (amount, stamp);
+    private final List <Transaction> transactions = new ArrayList <> ();
+    private final History history = new History (transactions);
+
     @Test void
-    store () {
-        //given
-        String stamp = null;
-        Integer amount = null;
-        Transaction transaction = new Transaction (amount, stamp);
-        List <Transaction> transactions = new ArrayList <> ();
-        History history = new History (transactions);
+    store_and_retrieve () {
         //when
         history.store (transaction);
         //then
         List <Transaction> expected = singletonList (transaction);
-        //noinspection UnnecessaryLocalVariable
-        List <Transaction> actual = transactions;
-        assertEquals (expected, actual);
-
-    }
-
-    @Test void
-    transactions () {
-        //given
-        String stamp = null;
-        Integer amount = null;
-        Transaction transaction = new Transaction (amount, stamp);
-        List <Transaction> transactions = singletonList (transaction);
-        //when
-        History history = new History (transactions);
-        //then
-        //noinspection UnnecessaryLocalVariable
-        List <Transaction> expected = transactions;
         List <Transaction> actual = history.transactions ();
         assertEquals (expected, actual);
+
     }
 
 }

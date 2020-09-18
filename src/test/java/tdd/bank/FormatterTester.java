@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FormatterTester {
 
+    private final Formatter formatter = new Formatter ();
+
     @Test void
     formations () {
         //given
@@ -16,11 +18,13 @@ class FormatterTester {
         Formation formation = new Formation (stamp, amount, balance);
         Transaction transaction = new Transaction (amount, stamp);
         List <Transaction> transactions = singletonList (transaction);
-        Formatter formatter = new Formatter ();
         //when
+        List <Formation> formations = formatter.formations (transactions);
         //then
         List <Formation> expected = singletonList (formation);
-        List <Formation> actual = formatter.formations (transactions);
+        //noinspection UnnecessaryLocalVariable
+        List <Formation> actual = formations;
         assertEquals (expected, actual);
     }
+
 }

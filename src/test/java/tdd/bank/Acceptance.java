@@ -43,8 +43,8 @@ class Acceptance {
     @Test void
     withdrawing_stores_transaction () {
         // given
-        String stamp = null;
         Integer amount = 0;
+        String stamp = null;
         Transaction transaction = new Transaction (amount, stamp);
         Account account = new Account (acceptor, stamper, creator, history, null, null);
         // when

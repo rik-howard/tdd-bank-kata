@@ -12,8 +12,7 @@ class Transaction {
         this.stamp = stamp;
     }
 
-    @Override
-    public boolean equals (Object object) {
+    @Override public boolean equals (Object object) {
         if (this == object) return true;
         else if (null == object) return false;
         else if (getClass ().equals (object.getClass ())) {
@@ -24,13 +23,11 @@ class Transaction {
         else return false;
     }
 
-    @Override
-    public int hashCode () {
+    @Override public int hashCode () {
         return Objects.hash (amount, stamp);
     }
 
-    @Override
-    public String toString () {
+    @Override public String toString () {
         String template = "Transaction{amount:%s;stamp:%s}";
         return String.format (template, amount, stamp);
     }
