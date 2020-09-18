@@ -44,7 +44,7 @@ class Acceptance {
     withdrawing_stores_transaction () {
         // given
         String stamp = null;
-        Integer amount = null;
+        Integer amount = 0;
         Transaction transaction = new Transaction (amount, stamp);
         Account account = new Account (acceptor, stamper, creator, history, null, null);
         // when

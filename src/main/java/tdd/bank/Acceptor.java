@@ -3,7 +3,7 @@ package tdd.bank;
 class Acceptor {
 
     Boolean accepts (Integer amount) {
-        return amount > 0;
+        return amount != null && amount > 0;
     }
 
 }

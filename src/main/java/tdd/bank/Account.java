@@ -32,7 +32,7 @@ class Account {
     void withdraw (Integer amount) {
         if (acceptor.accepts (amount)) {
             String stamp = stamper.stamp ();
-            Transaction transaction = creator.transaction (amount, stamp);
+            Transaction transaction = creator.transaction (-amount, stamp);
             history.store (transaction);
         }
         else throw new IllegalArgumentException ("amount unacceptable: " + amount);

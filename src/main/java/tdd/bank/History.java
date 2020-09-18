@@ -12,7 +12,7 @@ class History {
     }
 
     void store (Transaction transaction) {
-        transactions.add (0, transaction);
+        transactions.add (transaction);
     }
 
     List <Transaction> transactions () {

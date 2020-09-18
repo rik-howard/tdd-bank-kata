@@ -9,16 +9,24 @@ class AcceptorTester {
 
     @Test void
     accepts_positives () {
-        Boolean expected = true;
         Integer amount = 1;
+        Boolean expected = true;
         Boolean actual = acceptor.accepts (amount);
         assertEquals (expected, actual);
     }
 
     @Test void
     accepts_non_positives_not () {
-        Boolean expected = false;
         Integer amount = 0;
+        Boolean expected = false;
+        Boolean actual = acceptor.accepts (amount);
+        assertEquals (expected, actual);
+    }
+
+    @Test void
+    accepts_null_not () {
+        Integer amount = null;
+        Boolean expected = false;
         Boolean actual = acceptor.accepts (amount);
         assertEquals (expected, actual);
     }
