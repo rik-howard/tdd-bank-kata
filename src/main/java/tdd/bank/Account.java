@@ -1,17 +1,23 @@
 package tdd.bank;
 
+import java.util.List;
+
 class Account {
 
     private final Acceptor acceptor;
     private final Stamper stamper;
     private final Creator creator;
     private final History history;
+    private final Formatter formatter;
+    private final Displayer displayer;
 
-    Account (Acceptor acceptor, Stamper stamper, Creator creator, History history) {
+    Account (Acceptor acceptor, Stamper stamper, Creator creator, History history, Formatter formatter, Displayer displayer) {
         this.acceptor = acceptor;
         this.stamper = stamper;
         this.creator = creator;
         this.history = history;
+        this.formatter = formatter;
+        this.displayer = displayer;
     }
 
     void deposit (Integer amount) {
@@ -33,7 +39,9 @@ class Account {
     }
 
     void printStatement () {
-        throw new UnsupportedOperationException ();
+        List <Transaction> transactions = history.transactions ();
+        List <Formation> formations = formatter.formations (transactions);
+        displayer.display (formations);
     }
 
 }
