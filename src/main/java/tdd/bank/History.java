@@ -1,6 +1,7 @@
 package tdd.bank;
 
 import java.util.List;
+import static java.util.Collections.unmodifiableList;
 
 class History {
 
@@ -15,7 +16,7 @@ class History {
     }
 
     List <Transaction> transactions () {
-        throw new UnsupportedOperationException ();
+        return unmodifiableList (transactions);
     }
 
 }
