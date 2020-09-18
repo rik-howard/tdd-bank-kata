@@ -4,8 +4,9 @@ import java.util.List;
 
 class Displayer {
 
-
     void display (List <Formation> formations) {
-        throw new UnsupportedOperationException ();
+        formations
+            .forEach (System.out::print);
     }
+
 }
