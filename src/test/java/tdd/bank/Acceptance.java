@@ -1,10 +1,10 @@
 package tdd.bank;
 
-import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import static java.util.Collections.singletonList;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -62,12 +62,10 @@ class Acceptance {
     @Test void
     printing_displays_transactions () {
         // given
-        String stamp = null;
-        Integer amount = null;
-        Formation formation = new Formation ();
-        Transaction transaction = new Transaction (amount, stamp);
-        List <Formation> formations = Collections.singletonList (formation);
-        List <Transaction> transactions = Collections.singletonList (transaction);
+        Formation formation = new Formation (null, null, null);
+        Transaction transaction = new Transaction (null, null);
+        List <Formation> formations = singletonList (formation);
+        List <Transaction> transactions = singletonList (transaction);
         Account account = new Account (null, null, null, history, formatter, displayer);
         // when
         when (history.transactions ()).thenReturn (transactions);

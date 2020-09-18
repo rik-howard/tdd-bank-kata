@@ -4,8 +4,8 @@ import java.util.Objects;
 
 class Transaction {
 
-    private final Integer amount;
-    private final String stamp;
+    final Integer amount;
+    final String stamp;
 
     Transaction (Integer amount, String stamp) {
         this.amount = amount;
